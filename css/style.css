@@ -2,11 +2,17 @@
 
 
 :root{
-    --main-color: #d3ad9f; /*COLOR PPREDOMINANTE EN LETRAS Y BOTONES*/
-    --black: #000000;
-    --bg:#646464; /*color del fonfo*/
+    --main-color: #89ac76; /*COLOR PPREDOMINANTE EN LETRAS Y BOTONES*/
+    --black: #3c684d;
+    --bg: 	#909090; /*color del fonfo*/
     --border: .3rem solid rgba(0, 0, 0, 0.3); 
     --letras: white;
+    --ig: linear-gradient(to bottom right, 
+    #515BD4,   
+    #8134AF, 
+    #DD2A7B,   
+    #FEDA77,
+    #F58529);
 }
 
 *{
@@ -56,6 +62,52 @@ a{
     color: #ffff;
 }
 
+
+/*COLOR DE LETRAS Y SUS DETALLES*/
+.btn-wsp{
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    bottom: 30px;
+    right: 30px;
+    background: #0df053;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 3);
+    z-index: 100;
+
+}
+.btn-wsp:hover{
+    text-decoration: none;
+    color: #0df053;
+    background: #fff;
+}
+
+.btn-ig{
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    bottom: 30px;
+    left: 30px;
+    background: var(--ig);
+
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 3);
+    z-index: 100;
+
+}
+.btn-ig:hover{
+    text-decoration: none;
+    color: #0df053;
+    background: #fff;
+}
 .heading{
     text-align: center;
     color: var(--letras);
@@ -69,7 +121,7 @@ a{
     color: var(--main-color);
     text-transform: uppercase;
 }
-
+/* BOTONES, TAMAÑO COLOR, ETC */
 .btn{
     margin-top: 1rem;
     display: inline-block;
@@ -85,7 +137,7 @@ a{
 
 }
 
-
+/* BARRA DE NAVECACION */
 .header{
     background: var(--bg);
     display: flex;
@@ -98,6 +150,7 @@ a{
     left: 0;
     right: 0;
     z-index: 1000; 
+    transition: top 0.3s ease-in-out;
 }
 
 .header .logo img{
@@ -130,18 +183,21 @@ a{
     color: var(--main-color);
 }
 
+
+
 #menu-btn{
     display: none;
 
 }
 
-
+/* LETRAS Y DETALLES */
 .home{
     min-height: 70vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
-    background: url(../images/logo-marca-agua.png) no-repeat;
+    background: url(../images/fondo.jpg) no-repeat;
     background-size: contain;
     background-position: center;
 }
@@ -153,7 +209,7 @@ a{
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, .9);
+    background: rgba(0, 0, 0, .45);
     z-index: 1;
 }
 
@@ -162,6 +218,7 @@ a{
     position: relative;
     z-index: 2;
     max-width: 80rem;
+    text-align: center;
   
 }
 
@@ -176,9 +233,11 @@ a{
    font-weight: lighter;
    line-height: 1.8;
    padding: 1rem 0;
-    color: #d8d7d7;
+    color: #ffffff;
  }
   
+
+ /* ---SECCION DE PRODUCTOS---- */
 .blogs .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(20rem, 1fr));
@@ -253,6 +312,9 @@ a{
     text-align: center;
 }
 
+
+/* ----SECCION DE CONTACTO E INFORMACION DE LA EMPRESA------- */
+
 .contact .row{
     display: flex;
     background: black;
@@ -304,17 +366,22 @@ a{
     background: none;
 }
 
+/* -------SOBRE NOSOTROS----- */
+
 .nosotros .row{
 
     display: flex;
     align-items: center;
     background: var(--black);
     flex-wrap: wrap;
-  }
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+}
 
 
   .nosotros .row .image{
-    flex: 1 1 45rem;
+    flex: 1 1 5rem;
   }
 
   .nosotros .row .image img{
@@ -408,6 +475,8 @@ a{
             background-color: #ffffff;
         }
 
+
+        /* MENU PARA VER LOS PRODUCTOS */
 .menu .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -443,6 +512,8 @@ a{
 .menu .box-container .box:hover >*{
     content: var(--black);
 }
+
+
 
 
 .header-content{
@@ -609,7 +680,7 @@ a{
 
 .footer .credit{
 
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: #fff;
     font-weight: lighter;
     padding: 1.5rem;
@@ -617,23 +688,6 @@ a{
 
 .footer .credit span{
     color: var(--main-color);
-}
-
-
-
-@media (max-width:900px){
-    html{
-        font-size: 55%;
-    }
-
-    .header{
-        padding: 1.5rem 2rem;
-    }
-    section{
-        padding: 2rem ;
-    }
-    
-
 }
 
 @media (max-width: 900px){

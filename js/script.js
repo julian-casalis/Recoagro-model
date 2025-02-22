@@ -3,7 +3,7 @@ var swiper1 = new Swiper(".customSwiper", {
     spaceBetween: 30,
     loop: true,
     autoplay: {
-        delay: 3000,  // Tiempo en milisegundos para cada slide (3 segundos)
+        delay: 6000,  // Tiempo en milisegundos para cada slide (3 segundos)
         disableOnInteraction: false,  // Mantiene el autoplay incluso cuando se interactúa con los botones
     },
     pagination: {
@@ -50,5 +50,22 @@ window.onscroll = () => {
     navbar.classList.remove('active'); // Remueve la clase 'active' en el navbar
    
 };
+});
+
+let lastScrollTop = 0; // Variable para saber la última posición del scroll
+
+window.addEventListener("scroll", function() {
+    let navbar = document.querySelector(".header"); // Seleccionamos la barra de navegación
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Si el usuario hace scroll hacia abajo, ocultamos la navbar
+        navbar.style.top = "-100px"; // Desplaza la navbar fuera de la vista (ajusta este valor a la altura de tu navbar)
+    } else {
+        // Si el usuario hace scroll hacia arriba, mostramos la navbar
+        navbar.style.top = "0"; // Restablece la navbar a la parte superior
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Evita que se vuelva negativo
 });
 
