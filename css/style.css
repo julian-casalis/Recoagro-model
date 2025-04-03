@@ -1,12 +1,16 @@
 
 
-
+/* colores de logo REcoAgro
+#NaN6801  color  del sol
+#a11211  ""  Reco
+#ff6800 "" Agro
+#NaN0100 "" Respuestos agricolas */
 :root{
-    --main-color: #89ac76; /*COLOR PPREDOMINANTE EN LETRAS Y BOTONES*/
-    --black: #3c684d;
-    --bg: 	#909090; /*color del fonfo*/
+    --main-color: #4f9863; /*COLOR PPREDOMINANTE EN LETRAS Y BOTONES*/
+    --black: #336240;
+    --bg: 	#fdfdfd; /*color del fonfo*/
     --border: .3rem solid rgba(0, 0, 0, 0.3); 
-    --letras: white;
+    --letras: rgb(32, 32, 32);
     --ig: linear-gradient(to bottom right, 
     #515BD4,   
     #8134AF, 
@@ -59,9 +63,37 @@ section{
 
 a{
     font-size: 2rem;
-    color: #ffff;
+    color: var(--letras);
 }
 
+
+.swiper-slide {
+    padding: 0 80px 50px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-button-prev::after {
+    font-size: 25px;
+}
+
+.swiper-button-next::after {
+    font-size: 25px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fff;
+}
+
+.swiper-pagination-bullet {
+    background-color: #747474;
+}
+
+.swiper-button-prev-active {
+    background-color: #ffffff;
+}
 
 /*COLOR DE LETRAS Y SUS DETALLES*/
 .btn-wsp{
@@ -158,7 +190,9 @@ a{
 
 }
 .header .navbar {
-    display: flex;
+    display: flex; 
+     justify-content: center;
+     margin-right: 155px;
 }
 .header .navbar a{
     margin: 0 1rem;
@@ -171,7 +205,7 @@ a{
 }
 
 .header .icons div{
-    color: #ffff;
+    color: var(--letras);
     cursor: pointer;
     font-size: 2.5rem;
     margin-left: 2rem;
@@ -192,14 +226,15 @@ a{
 
 /* LETRAS Y DETALLES */
 .home{
-    min-height: 70vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: url(../images/fondo.jpg) no-repeat;
+    background: url(../images/fondo.jpg) repeat;
     background-size: contain;
     background-position: center;
+    z-index: 0; 
 }
 
 .home::before{
@@ -256,7 +291,7 @@ a{
 .blogs .box-container .box .image{
     overflow: hidden;
     width: 100%;
-    max-height: 20rem;
+    max-height: 22rem;
 }
 
 .blogs .box-container .box .image img{
@@ -281,7 +316,7 @@ a{
 .blogs .box-container .box .content .title{
     font-size: 2.5rem;
     line-height: 1.5;
-    color: #fff;
+    color: var(--letras);
     margin: 0;
 }
 
@@ -315,55 +350,91 @@ a{
 
 /* ----SECCION DE CONTACTO E INFORMACION DE LA EMPRESA------- */
 
-.contact .row{
+.contact .row {
     display: flex;
-    background: black;
+    background: transparent ;
     flex-wrap: wrap;
-    gap: 1rem;
-}
-.contact .row .map{
-   flex: 1 1 15rem;
-   width: 100%;
-   object-fit: cover;
-   height: 50rem;
+    gap: 2rem;
+    justify-content: space-between;
+    padding: 2rem;
 }
 
-.contact .row form{
-    max-width: 15rem;
-    flex-direction: 1 1 15rem;
-    padding: 5rem 2rem;
+.contact .row .map {
+    flex: 1 1 45%;
+    width: 100%;
+    height: 30rem;
+    border: none; /* Elimina el borde del iframe */
+    border-radius: 10px;
+}
+
+.contact .row form {
+    max-width: 500px;
+    width: 100%;
+    background: #333;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact .row form h3 {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
     text-align: center;
 }
-.contact .row form h3{
-    text-transform: uppercase;
-    font-size: 3.5rem;
-    color: #ffff;
 
-}
-
-.contact .row form .inputBox{
+.contact .row form .inputBox {
     display: flex;
     align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    background: var(--black);
-    border: var(--border);
+    margin-bottom: 1.5rem;
+    background: #444;
+    border-radius: 5px;
+    padding: 0.5rem;
+    transition: 0.3s ease;
 }
 
-
-.contact .row form .inputBox span{
-    color: #ffff;
-    font-size: 2rem;
-    padding-left: 2rem;
+.contact .row form .inputBox:hover {
+    background: #555;
 }
 
-.contact .row form .inputBox input{
-    width: 100%;
-    padding: 2rem;
-    font-size: 1.7rem;
+.contact .row form .inputBox span {
     color: #fff;
-    text-transform: none;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    margin-right: 1rem;
+}
+
+.contact .row form .inputBox input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #fff;
     background: none;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.contact .row form .inputBox input::placeholder {
+    color: #bbb;
+}
+
+.contact .row form .btn {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.8rem;
+    background: var(--main-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+    margin-top: 1rem;
+}
+
+.contact .row form .btn:hover {
+    background:var(--main-color);
 }
 
 /* -------SOBRE NOSOTROS----- */
@@ -445,34 +516,6 @@ a{
             display: flex;
             align-items: center;
             min-height: 80vh;
-        }
-        
-        .swiper-slide {
-            padding: 0 80px 50px 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .swiper-button-prev::after {
-            font-size: 25px;
-        }
-        
-        .swiper-button-next::after {
-            font-size: 25px;
-        }
-        
-        .swiper-button-prev,
-        .swiper-button-next {
-            color: #fff;
-        }
-        
-        .swiper-pagination-bullet {
-            background-color: #747474;
-        }
-        
-        .swiper-button-prev-active {
-            background-color: #ffffff;
         }
 
 
@@ -633,121 +676,151 @@ a{
 
 
 
-
-.footer{
-    background-color: black;
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
     text-align: center;
-}
+  }
 
-.footer .share{
-    padding: 1rem;
-}
-
-.footer .share a{
-    height: 5rem;
-    width: 5rem;
-    line-height: 5rem;
-    font-size: 2rem;
-    color: #fff;
-    border: var(--border);
-    margin: .4rem;
-    border-radius: 50%;
-}
-
-.footer .share a:hover{
-    background-color: var(--main-color);
-}
-
-
-.footer .links{
+  .footer-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    padding: 2rem 0;
-    gap: 1rem;
-}
-.footer .links a{
-    padding: .8rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-container div {
+    width: 25%;
+    padding: 10px;
+  }
+
+  .footer-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .footer-info, .footer-link {
+    font-size: 14px;
+    color: #bbb;
+  }
+
+  .footer-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .footer-link:hover {
     color: #fff;
-    border: var(--border);
-    font-size: 2rem;
-}
+  }
 
-.footer .links a:hover{
+  .footer-list {
+    list-style-type: none;
+    padding: 0;
+  }
 
-    background: var(--main-color);
-}
+  .footer-list li {
+    margin: 5px 0;
+  }
 
-.footer .credit{
-
-    font-size: 1.4rem;
-    color: #fff;
-    font-weight: lighter;
-    padding: 1.5rem;
-}
-
-.footer .credit span{
-    color: var(--main-color);
-}
-
-@media (max-width: 900px){
-    html{
-        font-size: 55%;
+@media (max-width: 900px) {
+    html {
+        font-size: 55%; /* Ajusta el tamaño de fuente si lo deseas */
     }
-    .header{
+
+    .header {
         padding: 1.5rem 2rem;
     }
-    section{
+
+    section {
         padding: 2rem;
     }
 
-
-        .carousel-item {
-            flex-direction: column; /* Cambia la dirección de los elementos a columna */
-        }
-    
-        .carousel-text {
-            width: 100%; /* Asegura que el texto ocupe el 100% del ancho */
-            order: -1; /* Coloca el texto arriba */
-            text-align: center; /* Centra el texto */
-        }
-    
-        .carousel-image {
-            width: 100%; /* Hace que la imagen ocupe el 100% del ancho */
-            order: 1; /* Coloca la imagen debajo */
-            text-align: center; /* Centra la imagen */
-        }
-    
-        .carousel-image img {
-            width: 100%; /* Hace que la imagen ocupe el 100% del ancho del contenedor */
-            max-width: 500px; /* Limita el ancho máximo de la imagen */
-        }
-    
-        .carousel-text h3 {
-            font-size: 2.5rem; /* Reduce el tamaño del texto en pantallas pequeñas */
-        }
-}
-
-@media (max-width: 750px){
-    #menu-btn{
-        display: inline-block;
+    /* Carousel ajustes */
+    .carousel-item {
+        flex-direction: column; /* Cambia la dirección de los elementos a columna */
     }
 
-    .header .navbar{
+    .carousel-text {
+        width: 100%; /* Asegura que el texto ocupe el 100% del ancho */
+        order: -1; /* Coloca el texto arriba */
+        text-align: center; /* Centra el texto */
+    }
+
+    .carousel-image {
+        width: 100%; /* Hace que la imagen ocupe el 100% del ancho */
+        order: 1; /* Coloca la imagen debajo */
+        text-align: center; /* Centra la imagen */
+    }
+
+    .carousel-image img {
+        width: 100%; /* Hace que la imagen ocupe el 100% del ancho del contenedor */
+        max-width: 500px; /* Limita el ancho máximo de la imagen */
+    }
+
+    .carousel-text h3 {
+        font-size: 2.5rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+    }
+
+    /* Mantener 2 columnas, pero ajustar imágenes en pantallas pequeñas */
+    .blogs .box-container {
+        grid-template-columns: repeat(2, 1fr); /* Siempre 2 columnas */
+    }
+
+    /* Ajustes para móviles más pequeños */
+    .blogs .box-container .box .image img {
+        height: auto; /* Asegura que las imágenes no se estiren */
+        width: 100%; /* Ajuste para que la imagen ocupe el 100% */
+    }
+
+    /* Ajuste de texto para pantallas más pequeñas */
+    .blogs .box-container .box .content .title {
+        font-size: 2rem; /* Ajuste del tamaño del título */
+    }
+
+    .blogs .box-container .box .content span {
+        font-size: 1.6rem; /* Ajuste del tamaño de la fecha o información adicional */
+    }
+
+    .blogs .box-container .box .content p {
+        font-size: 1.4rem; /* Ajuste del tamaño del texto */
+    }
+
+    /* Menú en pantallas pequeñas */
+    .header .icons{
+        margin-left: 12rem;
+    }
+    #menu-btn {
+        display: flex;
+    }
+
+    .header .navbar {
+        display: none;
         position: absolute;
-        top: 100%;
-        right: -100%;
-        background: #ffff;
-        width: 30rem;
-        height: calc(100vh - 9.5rem);
+        flex-direction: column;
+        top: 80px;
+        left: 0;
+        background: #af2323;
+        width: 100%;
         transition: right 0.3s ease-in-out;
+        text-align: center;
     }
 
-    .header .navbar .active{
-        right: 0;
+    .header .navbar.active {
+        display: block; /* El menú se hace visible */
+        position: absolute;
+        top: 50px; /* O ajusta según el diseño */
+        left: 0;
+        width: 100%; /* O ajusta el ancho según sea necesario */
+        background-color: #b1b1b1; /* Asegúrate de que el fondo sea visible */
+        color: white; /* Estilo de texto */
+        z-index: 1000;
+
     }
 
-    .header .navbar a{
+    .header .navbar a {
         color: var(--black);
         display: block;
         margin: 1.5rem;
@@ -755,58 +828,74 @@ a{
         font-size: 2rem;
     }
 
-    .home{
+    .home {
         background-position: left;
         justify-content: center;
     }
 
-    .home .content h3{
+    .home .content h3 {
         font-size: 4rem;
     }
 
-    .home .content p{
+    .home .content p {
         font-size: 1.3rem;
     }
-
-    .blogs .box-container{
-        grid-template-columns: 1fr; /* Cambia de columnas a una sola columna */
-    }
-}
-@media (max-width: 768px) {
-    .blogs .box-container .box .content .title {
-        font-size: 2rem;
-    }
 }
 
-.blogs .box-container .box .content .title:hover {
-    color: var(--main-color);
-}
 
-.blogs .box-container .box .content span {
-    color: var(--main-color);
-    display: block;
-    padding-top: 1rem;
-    font-size: 2rem;
-}
-
-.blogs .box-container .box .content p {
-    font-size: 1.6rem;
-    line-height: 1.8;
-    color: #fff;
-    padding: 1rem 0;
-    margin: 0;
-}
-
-.blogs .box-container .box .content .btn {
-    align-items: flex-start;
-    text-align: center;
-}
-@media (max-width: 450px){
-    html{
-        font-size: 50%;
+@media (max-width: 400px) {
+    html {
+        font-size: 45%; /* Reducir el tamaño de fuente aún más para pantallas muy pequeñas */
     }
 
-    .blogs .box-container .box .image img{
+    /* Ajustes de la imagen dentro de los blogs */
+    .blogs .box-container .box .image img {
         height: auto; /* Asegura que las imágenes no se estiren */
+        width: 100%; /* Ajuste para que la imagen ocupe el 100% */
+    }
+
+    /* Ajustes de texto para pantallas aún más pequeñas */
+    .blogs .box-container .box .content .title {
+        font-size: 1.6rem; /* Reduce el tamaño del título */
+    }
+
+    .blogs .box-container .box .content span {
+        font-size: 1.4rem; /* Ajuste del tamaño de la fecha o información adicional */
+    }
+
+    .blogs .box-container .box .content p {
+        font-size: 1.2rem; /* Ajuste aún más pequeño del tamaño del texto */
+    }
+
+    /* Ajustes del botón para que sea más accesible en pantallas pequeñas */
+    .blogs .box-container .box .content .btn {
+        font-size: 1.4rem; /* Reduce el tamaño del texto en los botones */
+        padding: 0.5rem; /* Reducir el tamaño del padding */
+    }
+
+    /* Ajuste en el menú */
+    .header .navbar {
+        width: 100%; /* Hacer que el navbar ocupe todo el ancho disponible */
+        height: auto; /* Ajuste automático en altura */
+        position: static; /* Evita que se superponga */
+    }
+
+    .header .navbar a {
+        font-size: 1.6rem; /* Ajustar el tamaño del texto en el navbar */
+        padding: 1rem; /* Reducir el padding en los enlaces */
+    }
+
+    /* Ajustar las imágenes en el carrusel para que no se sobrepasen */
+    .carousel-image img {
+        max-width: 100%; /* Hace que las imágenes no se desborden en dispositivos pequeños */
+    }
+
+    .carousel-text h3 {
+        font-size: 2rem; /* Ajuste del tamaño del título en el carrusel */
+    }
+
+    /* Asegura que las imágenes del carrusel se adapten bien */
+    .carousel-image {
+        width: 100%; /* Hace que la imagen ocupe el 100% del ancho */
     }
 }
